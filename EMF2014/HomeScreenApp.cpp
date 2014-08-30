@@ -34,6 +34,7 @@
 #include <M2tk.h>
 #include "GUITask.h"
 #include "fonts/allFonts.h"
+#include "twitter.h"
 #include "TiLDA_64x96.h"
 #include "TiLDA_64x128.h"
 
@@ -177,16 +178,18 @@ void HomeScreenApp::drawHungScreen() {
     Tilda::getGUITask().clearRoot();
     Tilda::log(Tilda::getUserNameLine1());
     Tilda::log(Tilda::getUserNameLine2());
-    if (*(Tilda::getUserNameLine1()) == 0 && *(Tilda::getUserNameLine2()) == 0) { // No name set
-        GLCD.DrawBitmap(TiLDA_Logo_64x128 ,0, 0); // Full Screen Image
-    } else {
-        GLCD.SelectFont(System5x7);
+   
+    GLCD.SelectFont(Arial_14);
 
-        GLCD.DrawString(Tilda::getUserNameLine1(),2,8);
-        GLCD.DrawString(Tilda::getUserNameLine2(),2,16);
-        GLCD.DrawBitmap(TiLDA_64x96,0,32);
-
-    }
+    GLCD.DrawString("Mark",16,8);
+    GLCD.DrawString("Godfrey",8,24);
+    
+    GLCD.DrawBitmap(twitter,13,48);
+    
+    GLCD.DrawString("@msgodf",5,78);
+    GLCD.DrawLine(0,100,100,100,BLACK);
+    GLCD.DrawString("Bristol, UK",2,110);
+    
 }
 
 void HomeScreenApp::afterSuspension() {}

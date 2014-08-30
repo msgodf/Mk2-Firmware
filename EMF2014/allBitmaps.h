@@ -3,3 +3,4 @@
 /* Any edits to this file will be lost when glcdMakeBitmap is next run */
 
 #include "logo.h"
+#include "twitter.h"
