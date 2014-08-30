@@ -37,6 +37,7 @@
 #include "Task.h"
 #include "EMF2014Config.h"
 #include "ButtonSubscription.h"
+#include "SoundTask.h"
 #include "RGBTask.h"
 #include "AppManager.h"
 #include "LCDTask.h"
@@ -71,6 +72,7 @@ public:
     static void delay(uint16_t durationInMs);
     static void setLedColor(RGBLed led, RGBColor color);
     static void setLedColor(RGBColor color);
+    static void playTone(int tone, int duration);
     static void openApp(app_ctor aNew);
     static float getBatteryVoltage();
     static uint8_t getBatteryPercent();
@@ -84,6 +86,7 @@ private:
     Tilda();
 
     static RGBTask* _rgbTask;
+    static SoundTask* _soundTask;
     static AppManager* _appManager;
     static RTC_clock* _realTimeClock;
     static BadgeNotifications* _badgeNotifications;
