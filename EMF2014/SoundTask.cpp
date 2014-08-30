@@ -27,3 +27,31 @@
  */
 
 #include "SoundTask.h"
+
+#include <FreeRTOS_ARM.h>
+#include <debug.h>
+
+SoundTask::SoundTask() {
+}
+
+void SoundTask::playTone(int tone, int duration) {
+      
+    pinMode(PIEZO, OUTPUT);
+    
+    for(int i = 0 ; i < duration; ++i) {
+        digitalWrite(PIEZO, HIGH);
+        delayMicroseconds(tone/2);
+        digitalWrite(PIEZO, LOW);
+        delayMicroseconds(tone/2);
+    }
+}
+
+String SoundTask::getName() const {
+    return "SoundTask";
+}
+
+void SoundTask::task() {
+    while(true) {
+        vTaskDelay((1000/portTICK_PERIOD_MS));
+    }
+}
