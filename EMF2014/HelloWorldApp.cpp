@@ -79,22 +79,28 @@ void HelloWorldApp::task() {
         GLCD.print("UP/DOWN/LEFT/RIGHT/A/B");
 
         Tilda::setLedColor({0, 0, 0});   // LEDs off
-
+         
         while(true) {  // Make sure this loop goes on forever
             Button button = mButtonSubscription->waitForPress(1000); // Wait for up to a second for a button press
             // Make sure all the buttons you're interested in are defined in the constructor
             if (button == UP) {
                 Tilda::setLedColor({255, 0, 0}); // red
+                Tilda::playTone(3830,80); // c
             } else if (button == DOWN) {
                 Tilda::setLedColor({0, 255, 0}); // green
+                Tilda::playTone(3400,80); // d
             } else if (button == LEFT) {
                 Tilda::setLedColor({0, 0, 255}); // BLUE
+                Tilda::playTone(3038,80); // e
             } else if (button == RIGHT) {
                 Tilda::setLedColor({255, 255, 0}); // yellow
+                Tilda::playTone(2864,80); // f
             } else if (button == A) {
                 Tilda::setLedColor({255, 0, 255}); // magenta
+                Tilda::playTone(2550,80); // g
             } else if (button == B) {
                 Tilda::setLedColor({0, 255, 255}); // cyan
+                Tilda::playTone(2272,80); // a
             } else {
                 Tilda::setLedColor({0, 0, 0});   // LEDs off
             }
