@@ -41,7 +41,7 @@ public:
 
     String getName() const;
     
-    void playTone(int tone, int duration);
+    void playTone(unsigned int tone, unsigned int duration);
     
 private:
     SoundTask(const SoundTask&) {}

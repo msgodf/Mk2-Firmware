@@ -34,15 +34,21 @@
 SoundTask::SoundTask() {
 }
 
-void SoundTask::playTone(int tone, int duration) {
-      
+// Both tone and duration are in microseconds
+void SoundTask::playTone(unsigned int tone, unsigned int duration) {
+
     pinMode(PIEZO, OUTPUT);
     
-    for(int i = 0 ; i < duration; ++i) {
+    int time = 0;
+    
+    while(time < duration) {
+      
         digitalWrite(PIEZO, HIGH);
         delayMicroseconds(tone/2);
         digitalWrite(PIEZO, LOW);
         delayMicroseconds(tone/2);
+        
+        time += tone;
     }
 }
 
