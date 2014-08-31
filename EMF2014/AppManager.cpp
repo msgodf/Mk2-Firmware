@@ -48,8 +48,8 @@ static const AppDefinition APPS[] = {
         AppDefinition("Badge ID",      BadgeIdApp::New),
         AppDefinition("Snake",         SnakeApp::New),
         AppDefinition("Tetris",        TetrisApp::New),
-        // AppDefinition("HelloWorld",    HelloWorldApp::New), // Uncomment this
-        AppDefinition("Sponsors",      SponsorsApp::New)
+        AppDefinition("HelloWorld",    HelloWorldApp::New), // Uncomment this
+        //  AppDefinition("Sponsors",      SponsorsApp::New)
 };
 
 AppManager::AppItem::AppItem(app_ctor aNew)
