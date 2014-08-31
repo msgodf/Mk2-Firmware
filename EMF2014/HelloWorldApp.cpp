@@ -43,7 +43,7 @@ App* HelloWorldApp::New() {
 }
 
 HelloWorldApp::HelloWorldApp() {
-    mButtonSubscription = Tilda::createButtonSubscription(UP | DOWN); // Define the buttons you're interested in here
+    mButtonSubscription = Tilda::createButtonSubscription(UP | DOWN | LEFT | RIGHT | A | B); // Define the buttons you're interested in here
 }
 
 HelloWorldApp::~HelloWorldApp() {
@@ -56,6 +56,10 @@ String HelloWorldApp::getName() const {
 
 bool HelloWorldApp::keepAlive() const {
         return false; // Should this app be suspended or killed when another app is started?
+}
+
+bool HelloWorldApp::killByPressingB() const {
+        return false; // Should this app be killed when B is pressed? No! I need the button for other things.
 }
 
 void HelloWorldApp::task() {
@@ -72,7 +76,7 @@ void HelloWorldApp::task() {
         GLCD.CursorToXY(2, 34);
         GLCD.print("Try");
         GLCD.CursorToXY(2,44);
-        GLCD.print("UP/DOWN");
+        GLCD.print("UP/DOWN/LEFT/RIGHT/A/B");
 
         Tilda::setLedColor({0, 0, 0});   // LEDs off
 
@@ -83,6 +87,14 @@ void HelloWorldApp::task() {
                 Tilda::setLedColor({255, 0, 0}); // red
             } else if (button == DOWN) {
                 Tilda::setLedColor({0, 255, 0}); // green
+            } else if (button == LEFT) {
+                Tilda::setLedColor({0, 0, 255}); // BLUE
+            } else if (button == RIGHT) {
+                Tilda::setLedColor({255, 255, 0}); // yellow
+            } else if (button == A) {
+                Tilda::setLedColor({255, 0, 255}); // magenta
+            } else if (button == B) {
+                Tilda::setLedColor({0, 255, 255}); // cyan
             } else {
                 Tilda::setLedColor({0, 0, 0});   // LEDs off
             }

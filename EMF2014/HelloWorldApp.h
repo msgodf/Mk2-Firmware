@@ -49,7 +49,8 @@ private:
     HelloWorldApp(const HelloWorldApp&);
 
     bool keepAlive() const;
-
+    bool killByPressingB() const;
+    
     void task();
     void afterSuspension();
     void beforeResume();
